@@ -1,4 +1,4 @@
-package com.example.demo_order_2.config;
+package com.example.demo_sale_2.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;

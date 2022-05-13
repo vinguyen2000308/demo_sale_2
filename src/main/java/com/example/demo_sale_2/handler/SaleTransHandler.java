@@ -1,10 +1,10 @@
-package com.example.demo_order_2.handler;
+package com.example.demo_sale_2.handler;
 
-import com.example.demo_order_2.common.KafkaProducer;
-import com.example.demo_order_2.domain.Data;
-import com.example.demo_order_2.domain.command.MakeSaleTranCommand;
-import com.example.demo_order_2.domain.reply.CreateSaleTransReply;
-import com.example.demo_order_2.service.SaleTransService;
+import com.example.demo_sale_2.common.KafkaProducer;
+import com.example.demo_sale_2.domain.Data;
+import com.example.demo_sale_2.domain.command.MakeSaleTranCommand;
+import com.example.demo_sale_2.domain.reply.CreateSaleTransReply;
+import com.example.demo_sale_2.service.SaleTransService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-import static com.example.demo_order_2.common.MessageUtil.checkCommandType;
+import static com.example.demo_sale_2.common.MessageUtil.checkCommandType;
 
 @Component
 public class SaleTransHandler {
@@ -28,6 +28,7 @@ public class SaleTransHandler {
 
     @KafkaListener(topics = "sale-service", groupId = "group1")
     public void saleServiceHandler(String message) throws JsonProcessingException {
+        System.out.println("Received Message: " + message);
         Data data = objectMapper.readValue(message, Data.class);
         if (Objects.nonNull(data))
             handleMessage(data);

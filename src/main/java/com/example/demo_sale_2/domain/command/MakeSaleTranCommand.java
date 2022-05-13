@@ -1,7 +1,7 @@
-package com.example.demo_order_2.domain.command;
+package com.example.demo_sale_2.domain.command;
 
-import com.example.demo_order_2.domain.Command;
-import com.example.demo_order_2.domain.dto.OrderItem;
+import com.example.demo_sale_2.domain.Command;
+import com.example.demo_sale_2.domain.dto.OrderItem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,5 +21,6 @@ public class MakeSaleTranCommand implements Command {
     private Long customerId;
     private Long orderId;
     private List<OrderItem> orderItemList;
+    private Double tax;
 
 }
